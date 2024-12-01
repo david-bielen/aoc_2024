@@ -1,0 +1,4 @@
+# Ignore all files by default
+part_one.py
+part_two.py
+*.pyc
