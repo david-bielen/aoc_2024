@@ -1,4 +1,4 @@
-input_string: str = """
+input_string = """
 87501   76559
 70867   16862
 12959   38527
