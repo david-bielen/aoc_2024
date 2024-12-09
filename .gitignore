@@ -1,4 +1,14 @@
 # Ignore all files by default
-# part_one.py
-# part_two.py
+*
+
 *.pyc
+
+# Allow specific files
+!**/part_one.py
+!**/part_two.py
+# !**/input_data.py
+
+# Optional: Prevent ignoring .gitignore itself
+!.gitignore
+
+!*/
