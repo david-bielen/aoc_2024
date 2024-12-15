@@ -8,8 +8,9 @@
 # is the one containing the pattern of a xmas tree.
 
 import numpy as np
+import time
 from input_data import input_string
-
+t = time.time()
 width, height = 101, 103
 
 robots = np.array(
@@ -37,7 +38,7 @@ def calc_entropy(grid):
 entropy = 666
 elapsed_seconds = None
 
-for r in range(0, 6600):
+for r in range(0, width * height):
     updated_positions = calculate_next_positions(positions, velocities, r)
     grid = np.zeros((height, width), dtype=int)
     np.add.at(grid, (updated_positions[:, 1], updated_positions[:, 0]), 1)
@@ -47,3 +48,4 @@ for r in range(0, 6600):
         elapsed_seconds = r
 
 print(elapsed_seconds)
+print(time.time() - t)
