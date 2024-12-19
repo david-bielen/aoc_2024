@@ -1,20 +1,18 @@
 from input_data import input_string
 
-parsed_input = []
-current_group = []
-
 
 def parse_value(segment: str) -> int:
     return int(segment.split("+")[1]) if "+" in segment else int(segment.split("=")[1])
 
 
-for line in input_string.split("\n") + [""]:
-    if line.strip():
-        parts = line.split(": ")[1].split(", ")
-        current_group.append((parse_value(parts[0]), parse_value(parts[1])))
-    elif current_group:
-        parsed_input.append(current_group)
-        current_group = []
+parsed_input = [
+    [
+        (parse_value(parts[0]), parse_value(parts[1]))
+        for parts in [line.split(": ")[1].split(", ")]
+    ]
+    for line in input_string.split("\n")
+    if line.strip()
+]
 
 cost = 0
 for e in parsed_input:
